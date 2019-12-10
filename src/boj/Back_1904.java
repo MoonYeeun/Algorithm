@@ -1,8 +1,8 @@
 package boj;
 
 import java.util.Scanner;
-//백준
-public class Back_2193 {
+//백준 01타일
+public class Back_1904 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
