@@ -45,14 +45,11 @@ public class Programmers_stringcompression {
             }
             StringBuilder sb = new StringBuilder();
             for(pair pair : list){
-                if(pair.num == 1)
-                    sb.append(pair.str);
-                else{
+                if(pair.num != 1)
                     sb.append(pair.num);
-                    sb.append(pair.str);
-                }
+                sb.append(pair.str);
             }
-            System.out.println(sb);
+            //System.out.println(sb);
             answer = Math.min(answer,sb.length());
             list.clear();
         }
