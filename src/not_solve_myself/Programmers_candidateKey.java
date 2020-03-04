@@ -41,9 +41,10 @@ public class Programmers_candidateKey {
         answer = candidate.size();
         System.out.println(answer);
     }
+    //유일성 만족하는지 검사
     static void minimailty_Check(HashSet<Integer> candidiate , int bit){
         for(int key : candidiate){
-            if((key & bit) == key) return;
+            if((key & bit) == key) return; //이미 있는 조합일 경우 return
         }
         candidiate.add(bit);
     }
