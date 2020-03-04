@@ -10,7 +10,6 @@ public class Programmers_makebiggernum {
         //int k = 4;
         String answer = "";
         int num = number.length() - k; // 고를 수 있는 자리수
-
         int cnt = 0;
         int start = 0;
         int end = k;
