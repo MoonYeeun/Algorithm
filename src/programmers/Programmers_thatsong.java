@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.PriorityQueue;
 
-public class Progrmmers_thatsong {
+public class Programmers_thatsong {
     public static void main(String[] args) {
         //String m = "ABCDEFG";
         //String m = "CC#BCC#BCC#BCC#B";
