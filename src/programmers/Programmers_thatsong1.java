@@ -20,7 +20,6 @@ public class Programmers_thatsong1 {
 
             String[] temp = str.split(",");
             String song = temp[3].replace("C#", "c").replace("D#", "d").replace("F#", "f").replace("A#", "a").replace("G#","g");
-            System.out.println(song);
             int song_len = song.length();
             int playtime = getTime(temp[0], temp[1]); // 곡 재생시간
 
