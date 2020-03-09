@@ -49,7 +49,6 @@ public class Back_2146 {
         }
         System.out.println(answer);
     }
-
     // 각각 다른 섬 구별하는 함수
     static void isIsland(int mark) {
         while(!queue.isEmpty()) {
@@ -85,7 +84,8 @@ public class Back_2146 {
                     int nx = pair.x + dx[j];
                     int ny = pair.y + dy[j];
                     if(nx < n && nx >= 0 && ny < n && ny >= 0) {
-                        if(map[nx][ny] != 0 && map[nx][ny] != current) return result;
+                        if(map[nx][ny] != 0 && map[nx][ny] != current)
+                            return result;
                         else if(map[nx][ny] == 0 && !visit[nx][ny]) {
                             visit[nx][ny] = true;
                             queue.add(new pair(nx,ny));
