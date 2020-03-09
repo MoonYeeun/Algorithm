@@ -45,7 +45,7 @@ public class Back_2146 {
         for(int i = 2 ; i < cnt ; i++) {
             visit = new boolean[n][n];
             queue.clear();
-            answer = Math.min(answer, makeBridge(i));
+            answer = Math.min(answer, bfs(i));
         }
         System.out.println(answer);
     }
@@ -65,7 +65,8 @@ public class Back_2146 {
             }
         }
     }
-    static int makeBridge(int current) {
+    // 섬 간의 거리 구하는 함수
+    static int bfs(int current) {
         for(int i = 0 ; i < n ; i++) {
             for(int j = 0 ; j < n ; j++) {
                 if(map[i][j] == current) {
