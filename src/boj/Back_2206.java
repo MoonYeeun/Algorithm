@@ -5,6 +5,10 @@ import java.util.Queue;
 import java.util.Scanner;
 
 // 백준 2206 벽 부수고 이동하기
+/*
+0 일 때 : 지나갈 수 있다 ( 이동거리 + 1 후 queue 에 넣어줌)
+1 일 때 : 공사 횟수 0 일 때만 지나갈 수 있다. ( 이동거리 , 공사횟수 + 1 후 queue 에 넣어줌)
+*/
 public class Back_2206 {
     static int[][] map;
     static int[][] visit; // 공사 횟수 담을 배열
