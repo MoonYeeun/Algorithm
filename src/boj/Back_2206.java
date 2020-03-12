@@ -22,7 +22,6 @@ public class Back_2206 {
         m = sc.nextInt();
         map = new int[n+1][m+1];
         visit = new int[n+1][m+1];
-        int answer = -1;
 
         for(int i = 1 ; i <= n ; i++) {
             String[] str = sc.next().split("");
@@ -34,7 +33,6 @@ public class Back_2206 {
         queue.add(new pair(1,1, 1, 0));
         visit[1][1] = 0;
 
-        answer = bfs();
         System.out.println(bfs());
     }
     static int bfs() {
