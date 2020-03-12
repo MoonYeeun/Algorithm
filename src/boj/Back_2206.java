@@ -35,7 +35,7 @@ public class Back_2206 {
         visit[1][1] = 0;
 
         answer = bfs();
-        System.out.println(answer);
+        System.out.println(bfs());
     }
     static int bfs() {
         while(!queue.isEmpty()) {
