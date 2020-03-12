@@ -1,7 +1,7 @@
 package boj;
 
 import java.util.*;
-// 백준 1389 케빈베이컨의 6단계 법칙
+// 백준 1389 케빈베이컨의 6단계 법칙 (Bfs)
 public class Back_1389 {
     static int[][] map;
     static boolean[] visit;
@@ -17,8 +17,7 @@ public class Back_1389 {
         for(int i = 0 ; i < m ; i++) {
             int num1 = sc.nextInt();
             int num2 = sc.nextInt();
-            map[num1][num2] = 1;
-            map[num2][num1] = 1;
+            map[num1][num2] = map[num2][num1] = 1;
         }
         for(int i = 1 ; i <= n ; i++) {
             visit = new boolean[n+1];
