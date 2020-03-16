@@ -1,4 +1,4 @@
-package com.company;
+package boj;
 
 import java.util.*;
 // 백준 2638 치즈
