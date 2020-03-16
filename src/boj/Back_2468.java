@@ -27,7 +27,7 @@ public class Back_2468 {
                 if(high < map[i][j]) high = map[i][j]; // 최대 높이 구하기
             }
         }
-        int answer = 1; // 비 안올 경우 고려해서 최소는 1
+        int answer = 1; // 비 안올 경우 고려해서 최소는 1 !!!!!
         for(int h = 1; h < high ; h++) {
             visit = new boolean[n][n];
             int cnt = 0;
