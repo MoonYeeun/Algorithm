@@ -8,7 +8,7 @@ import java.util.*;
 3. 3인 부분 외부공기(2)로 만들고 그 부분부터 외부공기-내부공기 구분
 4. 치즈 다 녹았는지 확인
 5. 덜 녹았으면 다 녹을 때까지 1,2,3,4 반복
-* */
+*/
 public class Back_2638 {
     static int[][] map;
     static boolean[][] visit;
@@ -32,7 +32,7 @@ public class Back_2638 {
         int answer = 0;
         while (true) {
             if(isClear() == 0) break;
-            bfs();
+            checkCheeze();
             melt();
             answer++;
         }
@@ -55,8 +55,8 @@ public class Back_2638 {
             }
         }
     }
-    // 녹을 공기 정하기
-    static void bfs() {
+    // 녹일 치즈 구분
+    static void checkCheeze() {
         for(int i = 0 ; i < n ; i++) {
             for(int j = 0 ; j < m ; j++) {
                 int cnt = 0;
