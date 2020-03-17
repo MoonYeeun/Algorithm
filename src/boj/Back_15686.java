@@ -44,8 +44,6 @@ public class Back_15686 {
                         distance = Math.min(distance, distance(home.get(i), chicken.get(j)));
                 }
                 temp += distance;
-                System.out.println(temp);
-                System.out.println("-----");
             }
             answer = Math.min(answer, temp);
             return;
