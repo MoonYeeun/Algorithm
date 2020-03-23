@@ -44,7 +44,7 @@ public class Programmers_holidayTraffic {
         int answer = 0;
         for(int i = 0 ; i < list.size(); i++) {
             int cnt = 0;
-            long f = list.get(i).end_ms + 999; // 응답완료 시간 + 1초
+            long f = list.get(i).end_ms + 999; // 응답완료 시간 +1초
             long i_e = list.get(i).end_ms; // 기준시간 끝
 
             for(int j = 0 ; j < list.size() ; j++) {
