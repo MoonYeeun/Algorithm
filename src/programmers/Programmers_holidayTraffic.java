@@ -54,7 +54,8 @@ public class Programmers_holidayTraffic {
                 if(j_s > f) continue;
                 if(((j_s >= i_e) && (j_s <= f))||
                 ((j_e >= i_e) && (j_e <= f)) ||
-                        ((j_s <= i_e) && (j_e >= i_e))) cnt++;
+                        ((j_s <= i_e) && (j_e >= i_e)))
+                    cnt++;
 
             }
             answer = Math.max(answer, cnt);
