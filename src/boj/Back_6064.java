@@ -3,6 +3,11 @@ package boj;
 import java.util.Scanner;
 
 // 백준 6064 카잉 달력
+/*
+최소공배수 : 두 수의 곱 / 최대공약수
+최대공약수 : 유클리드 호제법
+(두 수 중 작은 수 / 두 수를 나눈 나머지 가 0일 때까지 반복 -> 0 일 때 작은 수의 값)
+* */
 public class Back_6064 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
