@@ -19,6 +19,7 @@ public class Back_2504 {
 
         int answer = 0;
         Stack<String> stack = new Stack<>();
+
         for(int i = 0 ; i < bracket.length() ; i++) {
             int temp = 0;
 
@@ -30,7 +31,7 @@ public class Back_2504 {
                 break;
             }
             if(bracket.charAt(i) == ')') {
-
+                // 바로 올바른 괄호 나오는 경우
                 if(stack.peek().equals("(")) {
                     stack.pop();
                     if(stack.isEmpty()) answer += 2;
@@ -42,7 +43,7 @@ public class Back_2504 {
                     answer = 0;
                     break;
                 }
-
+                // 숫자 존재하는 경우
                 while (!stack.isEmpty()) {
                     String str = stack.peek();
 
@@ -63,7 +64,7 @@ public class Back_2504 {
                 }
             }
             if(bracket.charAt(i) == ']') {
-
+                // 바로 올바른 괄호 나오는 경우
                 if(stack.peek().equals("[")) {
                     stack.pop();
                     if(stack.isEmpty()) answer += 3;
@@ -75,7 +76,7 @@ public class Back_2504 {
                     answer = 0;
                     break;
                 }
-
+                // 숫자 존재하는 경우
                 while (!stack.isEmpty()) {
                     String str = stack.peek();
 
@@ -96,6 +97,7 @@ public class Back_2504 {
                 }
             }
         }
+
         if(!stack.isEmpty()) System.out.println(0);
         else System.out.println(answer);
     }
