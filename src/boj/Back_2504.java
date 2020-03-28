@@ -5,7 +5,13 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 // 백준 2504 괄호의 값
+/*
+스택이 비어있지 않은 경우
+괄호로 만들어지는 값 () = 2 [] = 3 을 다시 스택에 넣어주기
 
+올바른 괄호 만들어 지기 전까지 숫자가 스택에 있다면
+값 더하고 마지막에 올바른 괄호 값 나온다면 곱하기
+* */
 public class Back_2504 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
