@@ -29,12 +29,12 @@ public class Programmers_travelroute {
             System.out.println(str);
     }
     static void dfs(String[][] tickets,String target, int cnt){
-
-        str += target+",";
+        str += target + ",";
         if(cnt == tickets.length){
             list.add(str);
             return;
         }
+
         for(int i = 0 ; i < tickets.length ; i++){
             if(tickets[i][0].equals(target) && !visit[i]){
                 visit[i] = true;
@@ -42,8 +42,6 @@ public class Programmers_travelroute {
                 visit[i] = false;
                 str = str.substring(0,str.length()-4); // (다른 사람 코드 참조)
             }
-
         }
-
     }
 }
