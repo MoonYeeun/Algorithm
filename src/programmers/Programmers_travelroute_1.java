@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 // 프로그래머스 여행경로 - 비트마스킹
 public class Programmers_travelroute_1 {
-    static PriorityQueue<String> pq = new PriorityQueue<>(); // 경로 중 알파벳 빠른 것 찾기 위함
+    static PriorityQueue<String> pq = new PriorityQueue<>(); // 경로 중 알파벳 빠른 것 찾기 위
     static int visit;
     public static void main(String[] args) {
         String[][] tickets = {{"ICN","SFO"},{"ICN","ATL"},{"SFO","ATL"},
@@ -26,10 +26,7 @@ public class Programmers_travelroute_1 {
         }
     }
     static void dfs(String[][] tickets, String dep, int bit, String city) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(city);
-        sb.append("/");
-        city = sb.toString();
+        city = city + "/";
 
         if(bit == visit) {
             pq.add(city + dep);
