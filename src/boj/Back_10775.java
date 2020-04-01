@@ -5,6 +5,7 @@ import java.util.Scanner;
 // 백준 10775 공항
 // 유니온 파인드
 // 입력으로 들어온 gi 부터 도킹 -> 이미 도킹되었을 경우 gi-1 도킹
+// 최종 루트 == 0 / 해당 gi root가 0이라면 더이상 도킹될 수 없다는 것 의미
 public class Back_10775 {
     static int p, g, answer;
     static int[] root;
