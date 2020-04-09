@@ -46,7 +46,7 @@ public class Back_12100 {
                         if((map[idx-1][i] != 0 && map[idx-1][i] != map[idx][i])
                                 || check[idx-1][i]) break;
 
-                        if(!check[idx-1][i] && map[idx-1][i] != 0 && map[idx-1][i] == map[idx][i]) {
+                        if(map[idx-1][i] != 0 && map[idx-1][i] == map[idx][i]) {
                             check[idx-1][i] = true;
                             map[idx-1][i] += map[idx][i];
                             map[idx][i] = 0;
@@ -70,7 +70,7 @@ public class Back_12100 {
                         if((map[idx+1][i] != 0 && map[idx+1][i] != map[idx][i])
                                 || check[idx+1][i]) break;
 
-                        if(!check[idx+1][i] && map[idx+1][i] != 0 && map[idx+1][i] == map[idx][i]) {
+                        if(map[idx+1][i] != 0 && map[idx+1][i] == map[idx][i]) {
                             check[idx+1][i] = true;
                             map[idx+1][i] += map[idx][i];
                             map[idx][i] = 0;
@@ -95,7 +95,7 @@ public class Back_12100 {
                         if((map[i][idx-1] != 0 && map[i][idx-1] != map[i][idx])
                                 || check[i][idx-1]) break;
 
-                        if(!check[i][idx-1] && map[i][idx-1] != 0 && map[i][idx-1] == map[i][idx]) {
+                        if(map[i][idx-1] != 0 && map[i][idx-1] == map[i][idx]) {
                             check[i][idx-1] = true;
                             map[i][idx-1] += map[i][idx];
                             map[i][idx] = 0;
@@ -120,7 +120,7 @@ public class Back_12100 {
                         if((map[i][idx+1] != 0 && map[i][idx+1] != map[i][idx])
                                 || check[i][idx+1]) break;
 
-                        if(!check[i][idx+1] && map[i][idx+1] != 0 && map[i][idx+1] == map[i][idx]) {
+                        if(map[i][idx+1] != 0 && map[i][idx+1] == map[i][idx]) {
                             check[i][idx+1] = true;
                             map[i][idx+1] += map[i][idx];
                             map[i][idx] = 0;
