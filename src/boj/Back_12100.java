@@ -34,101 +34,58 @@ public class Back_12100 {
     }
     static void move(int dir, int[][] map) {
         boolean[][] check = new boolean[n][n];
-        // 위
-        if(dir == 0) {
+        // 위 or 아래
+        if(dir == 0 || dir == 1) {
             for(int i = 0 ; i < n ; i++) {
-                for(int j = 1 ; j < n ; j++) {
+                for (int j = 1; j < n; j++) {
+                    int idx = dir == 0 ? j : n - 1 - j;
+                    int num = dir == 0 ? -1 : 1;
 
-                    if(map[j][i] == 0) continue;
-                    int idx = j;
+                    if(map[idx][i] == 0) continue;
 
-                    while (idx > 0) {
-                        if((map[idx-1][i] != 0 && map[idx-1][i] != map[idx][i])
-                                || check[idx-1][i]) break;
+                    while (idx > 0 || idx < n-1) {
+                        if(dir == 0 && idx <= 0) break;
+                        if(dir == 1 && idx > n-2) break;
+                        if((map[idx + num][i] != 0 && map[idx + num][i] != map[idx][i])
+                                || check[idx + num][i]) break;
 
-                        if(map[idx-1][i] != 0 && map[idx-1][i] == map[idx][i]) {
-                            check[idx-1][i] = true;
-                            map[idx-1][i] += map[idx][i];
+                        if(map[idx + num][i] != 0 && map[idx + num][i] == map[idx][i]) {
+                            check[idx + num][i] = true;
+                            map[idx + num][i] += map[idx][i];
                             map[idx][i] = 0;
                             continue;
                         }
-                        map[idx-1][i] = map[idx][i];
+                        map[idx + num][i] = map[idx][i];
                         map[idx][i] = 0;
-                        idx--;
+                        idx += num;
                     }
                 }
             }
         }
-        // 아래
-        if(dir == 1) {
+        // 왼 or 오
+        if(dir == 2 || dir == 3) {
             for(int i = 0 ; i < n ; i++) {
-                for(int j = n-2 ; j >= 0 ; j--) {
-                    if(map[j][i] == 0) continue;
-                    int idx = j;
+                for (int j = 1; j < n; j++) {
+                    int idx = dir == 2 ? j : n - 1 - j;
+                    int num = dir == 2 ? -1 : 1;
 
-                    while (idx < n-1) {
-                        if((map[idx+1][i] != 0 && map[idx+1][i] != map[idx][i])
-                                || check[idx+1][i]) break;
+                    if(map[i][idx] == 0) continue;
 
-                        if(map[idx+1][i] != 0 && map[idx+1][i] == map[idx][i]) {
-                            check[idx+1][i] = true;
-                            map[idx+1][i] += map[idx][i];
-                            map[idx][i] = 0;
-                            continue;
-                        }
-                        map[idx+1][i] = map[idx][i];
-                        map[idx][i] = 0;
-                        idx++;
-                    }
-                }
-            }
-        }
-        // 왼
-        if(dir == 2) {
-            for(int i = 0 ; i < n ; i++) {
-                for(int j = 1 ; j < n ; j++) {
+                    while (idx > 0 || idx < n-1) {
+                        if(dir == 2 && idx <= 0) break;
+                        if(dir == 3 && idx > n-2) break;
+                        if((map[i][idx + num] != 0 && map[i][idx + num] != map[i][idx])
+                                || check[i][idx + num]) break;
 
-                    if(map[i][j] == 0) continue;
-                    int idx = j;
-
-                    while (idx > 0) {
-                        if((map[i][idx-1] != 0 && map[i][idx-1] != map[i][idx])
-                                || check[i][idx-1]) break;
-
-                        if(map[i][idx-1] != 0 && map[i][idx-1] == map[i][idx]) {
-                            check[i][idx-1] = true;
-                            map[i][idx-1] += map[i][idx];
+                        if(map[i][idx + num] != 0 &&map[i][idx + num] == map[i][idx]) {
+                            check[i][idx + num] = true;
+                            map[i][idx + num] += map[i][idx];
                             map[i][idx] = 0;
                             continue;
                         }
-                        map[i][idx-1] = map[i][idx];
+                        map[i][idx + num] = map[i][idx];
                         map[i][idx] = 0;
-                        idx--;
-                    }
-                }
-            }
-        }
-        // 오
-        if(dir == 3) {
-            for(int i = 0 ; i < n ; i++) {
-                for(int j = n-2 ; j >= 0 ; j--) {
-
-                    if(map[i][j] == 0) continue;
-                    int idx = j;
-
-                    while (idx < n-1) {
-                        if((map[i][idx+1] != 0 && map[i][idx+1] != map[i][idx])
-                                || check[i][idx+1]) break;
-
-                        if(map[i][idx+1] != 0 && map[i][idx+1] == map[i][idx]) {
-                            check[i][idx+1] = true;
-                            map[i][idx+1] += map[i][idx];
-                            map[i][idx] = 0;
-                            continue;
-                        }
-                        map[i][idx+1] = map[i][idx];
-                        map[i][idx] = 0;
-                        idx++;
+                        idx += num;
                     }
                 }
             }
