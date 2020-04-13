@@ -70,7 +70,7 @@ public class Back_15683 {
                 x = nx;
                 y = ny;
             }
-            if(cctv == 3 || cctv == 4) dir = (dir + 5) % 4;
+            if(cctv == 3 || cctv == 4) dir = (dir + 1) % 4;
             if(cctv == 2) dir = dir + 2;
         }
         return arr;
