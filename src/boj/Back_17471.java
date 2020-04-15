@@ -57,7 +57,7 @@ public class Back_17471 {
         visit[idx] = true;
         pair pair = new pair(1, map[idx]);
 
-        for(int i = 0 ; i < n ; i++) {
+        for(int i = 1 ; i <= n ; i++) {
             if(!list[idx].contains(i) || visit[i] || temp[i] != mark) continue;
             pair temp = dfs(i, mark);
             pair.total += temp.total;
