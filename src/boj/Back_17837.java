@@ -45,10 +45,7 @@ public class Back_17837 {
             cnt++;
             for(pair pair : list) {
                 temp.clear();
-                // 해당 말보다 위에 있는 것 같이 움직이도록
-                while (stack[pair.x][pair.y].size()-1 >= pair.stack_idx) {
-                    temp.add(stack[pair.x][pair.y].pop());
-                }
+
                 int nx = pair.x + dx[pair.dir];
                 int ny = pair.y + dy[pair.dir];
 
@@ -60,23 +57,15 @@ public class Back_17837 {
 
                     nx = pair.x + dx[pair.dir];
                     ny = pair.y + dy[pair.dir];
-                    // 방향 바꿨을 때 체스판 벗어난 경우
-                    if(nx < 1 || nx > n || ny < 1 || ny > n) {
 
-                        if(pair.dir == 1 || pair.dir == 2) pair.dir = 3 - pair.dir;
-                        else pair.dir = 7 - pair.dir;
-
-                        nx = pair.x + dx[pair.dir];
-                        ny = pair.y + dy[pair.dir];
-                    }
-
-                    if(map[nx][ny] == 2) {
-                        for(int i = temp.size() - 1 ; i >= 0 ; i--) {
-                            pair p = list.get(temp.get(i).idx);
-                            stack[pair.x][pair.y].add(p);
-                        }
+                    // 방향 바꿨을 때 체스판 벗어난 경우 or 파란색 -> 그대로
+                    if(nx < 1 || nx > n || ny < 1 || ny > n || map[nx][ny] == 2)
                         continue;
-                    }
+                }
+
+                // 해당 말보다 위에 있는 것 같이 움직이도록
+                while (stack[pair.x][pair.y].size()-1 >= pair.stack_idx) {
+                    temp.add(stack[pair.x][pair.y].pop());
                 }
                 // 이동하려는 칸에 말이 4개 이상 쌓이는 경우
                 if(4 - stack[nx][ny].size() <= temp.size()) {
