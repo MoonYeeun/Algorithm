@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Programmers_takeGroupPhoto {
     static int[] arr;
     static HashMap<Character, Integer> map = new HashMap<>();
-    static int answer = 0;
+    static int answer;
     public static void main(String[] args) {
         int n = 2;
         String[] data = {"N~F=0", "R~T>2"};
@@ -23,6 +23,7 @@ public class Programmers_takeGroupPhoto {
         map.put('R', 6);
         map.put('T', 7);
 
+        answer = 0;
         arr = new int[8];
         // 줄 세우는 순열 구하기
         per(0, data, 0);
@@ -40,11 +41,12 @@ public class Programmers_takeGroupPhoto {
                 if(op == '<') {
                     if(Math.abs(f1 - f2) -1 >= num) return;
                 }
-                if(op == '>') {
+                else if(op == '>') {
                     if(Math.abs(f1 - f2) -1 <= num) return;
                 }
-                if(op == '=')
+                else {
                     if(Math.abs(f1 - f2) -1 != num) return;
+                }
             }
             answer++;
             return;
