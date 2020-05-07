@@ -51,7 +51,7 @@ public class Programmers_checkOuterWall {
                     dis++;
                 }
                 // 모두 점검 가능한 경우
-                if(dis >= len-1) {
+                if(dis >= len) {
                     answer = Math.min(answer, list.size());
                     break;
                 }
