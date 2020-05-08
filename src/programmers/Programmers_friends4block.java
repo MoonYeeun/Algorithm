@@ -3,7 +3,7 @@ package programmers;
 import java.util.*;
 
 // 2018 카카오 프렌즈4블록
-public class Programmer_friends4block {
+public class Programmers_friends4block {
     public static void main(String[] args) {
         String[] board = {"HGNHU", "CRSHV", "UKHVL", "MJHQB", "GSHOT", "MQMJJ", "AGJKK", "QULKK"};
         System.out.println(solution(8, 5, board));
