@@ -4,6 +4,7 @@ import java.util.*;
 
 // 백준 1939 중량제한
 // bfs + 이분탐색
+// 메모리....
 public class Back_1939 {
     static ArrayList<pair>[] bridge;
     static boolean[] visit;
