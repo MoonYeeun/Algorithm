@@ -24,24 +24,18 @@ public class Back_1715 {
             pq.add(arr[i]);
         }
 
-        if(pq.size() == 1) System.out.println(0);
-        else {
-            int ans = 0;
-            while (!pq.isEmpty()) {
-                int a = 0;
-                boolean flag = false;
+        int ans = 0;
+        int card1, card2;
+        while (!pq.isEmpty()) {
+            card1 = pq.poll();
 
-                for(int i = 0 ; i < 2 ; i++) {
-                    if(pq.isEmpty()) {
-                        flag = true;
-                        break;
-                    }
-                    a += pq.poll(); // 가장 적은 카드 묶음 2개 더하기
-                }
-                ans += a;
-                if(!flag && !pq.isEmpty()) pq.add(a);
+            if(!pq.isEmpty()) {
+                card2 = pq.poll();
+                ans += card1 + card2;
+
+                pq.add(card1 + card2); // 크기 가장 적은 2개 카드 더하기
             }
-            System.out.println(ans);
         }
+        System.out.println(ans);
     }
 }
