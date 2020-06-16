@@ -7,7 +7,6 @@ import java.util.*;
 public class Back_9997 {
     static int[] word;
     static int n, answer;
-    static HashSet<Integer> set = new HashSet<>();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
