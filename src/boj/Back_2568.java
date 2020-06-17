@@ -37,19 +37,20 @@ public class Back_2568 {
                 dp[check] = arr[i];
             }
         }
+
         // LIS의 요소 구하기
         int s = idx;
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for(int i = 500000; i > 0 ; i--) {
             if(record[i] == 0) continue;
 
-            if(idx <= 0) break;
+            if(s <= 0) break;
             if(record[i] == s) {
+                System.out.println(i);
                 pq.add(i);
                 s--;
             }
         }
-
         System.out.println(n - pq.size()); // 제거 개수
         for(int i = 1; i <= 500000 ; i++) {
             if(arr[i] == 0) continue;
