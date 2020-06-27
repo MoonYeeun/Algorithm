@@ -3,6 +3,7 @@ package boj;
 import java.util.*;
 
 // 백준 14395 4연산
+// 연산 순서 중요 ! ("*" > "+" > "-" > "/") 순으로 해야함
 public class Back_14395 {
     static int s, t;
     static String ans = "";
