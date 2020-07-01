@@ -3,12 +3,13 @@ package programmers;
 import java.util.*;
 
 // 카카오 보석쇼핑
+// 투포인터
 public class Programmers_jewelShopping {
     public static void main(String[] args) {
-//        String[] gems = {"DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"};
+        String[] gems = {"DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"};
 //        String[] gems = {"AA", "AB", "AC", "AA", "AC"};
 //        String[] gems = {"XYZ", "XYZ", "XYZ"};
-        String[] gems = {"ZZZ", "YYY", "NNNN", "YYY", "BBB"};
+//        String[] gems = {"ZZZ", "YYY", "NNNN", "YYY", "BBB"};
 
         int[] answer = solution(gems);
 
