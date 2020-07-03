@@ -31,9 +31,6 @@ public class Back_9466 {
 
                 ans += dfs(i, i, 1);
             }
-            for(int i = 1 ; i <= n ; i++) {
-                System.out.println("cycle " + cycle[i]);
-            }
             System.out.println(n - ans);
         }
     }
@@ -55,4 +52,22 @@ public class Back_9466 {
 
         return dfs(s, next, cnt + 1);
     }
+    // cylce 찾는법 ver 2
+    // 방문한적 있으면 해당 시작점부터 방문한 점 개수 증가 -> 사이클이므로
+//    static void dfs(int cur) {
+//        visit[cur] = true;
+//
+//        int next = student[cur];
+//
+//        if(!visit[next]) dfs(next);
+//
+//        else if(!done[next]) {
+//            for(int i = next ; i != cur ; i = student[i]) {
+//                cnt++;
+//            }
+//            cnt++; // 자기자신
+//        }
+//
+//        done[cur] = true;
+//    }
 }
