@@ -5,8 +5,7 @@ import java.util.*;
 // 카카오 인턴 수식최대화
 // 1. 연산자, 숫자 추출
 // 2. 연산자 우선순위정하기
-// 3. 계산 (우선순위 아닌 것은 스택에 넣기)
-//  1) 해당 스택으로 다시 연산자, 숫자 배열 갱신
+// 3. 계산
 public class Programmers_thebiggestFormula {
     static ArrayList<String> list = new ArrayList<>();
     static String[] num, oper;
@@ -32,51 +31,34 @@ public class Programmers_thebiggestFormula {
         return ans;
     }
     static void calPrize() {
-        Stack<Long> numSt = new Stack<>();
-        Stack<String> opSt = new Stack<>();
 
-        long[] number = new long[num.length];
+        ArrayList<Long> number = new ArrayList<>();
         for(int i = 0 ; i < num.length ; i++) {
-            number[i] = Long.parseLong(num[i]);
+            number.add(Long.parseLong(num[i]));
         }
-        String[] operator = new String[oper.length];
+
+        ArrayList<String> operator = new ArrayList<>();
         for(int i = 0 ; i < oper.length ; i++) {
-            operator[i] = oper[i];
+            operator.add(oper[i]);
         }
 
+        // 우선순위 연산자인 경우:
+        // 1. 숫자리스트에서 계산할 숫자 제거 후 계산한 결과 다시 해당 인덱스에 맞는 리스트에 넣어줌
+        // 2. 연산자리스트에서 해당 연산자 제거
         for(int i = 0 ; i < 3 ; i++) {
-            numSt.push(number[0]);
-
-            for(int j = 0 ; j < operator.length ; j++) {
-                numSt.push(number[j+1]);
-
+            for(int idx = 0 ; idx < operator.size() ; idx++) {
                 // 해당 연산자가 현재 우선순위 연산자인 경우
-                if(operator[j].equals(list.get(i))) {
-                    long a = numSt.pop();
-                    long b = numSt.pop();
-                    numSt.push(cal(b, a, operator[j]));
-                }
-                // 아닌 경우
-                else opSt.push(operator[j]);
-            }
-            // number 배열 갱신
-            long[] temp1 = new long[numSt.size()];
-            int idx = numSt.size()-1;
-            while (!numSt.isEmpty()) {
-                temp1[idx--] = numSt.pop();
-            }
-            // oper 배열 갱신
-            String[] temp2 = new String[opSt.size()];
-            idx = opSt.size()-1;
-            while (!opSt.isEmpty()) {
-                temp2[idx--] = opSt.pop();
-            }
+                if(operator.get(idx).equals(list.get(i))) {
+                    long a = number.remove(idx);
+                    long b = number.remove(idx);
+                    number.add(idx, cal(a, b, operator.get(idx)));
 
-            number = temp1;
-            operator = temp2;
+                    operator.remove(idx--);
+                }
+            }
         }
 
-        ans = Math.max(ans, Math.abs(number[0]));
+        ans = Math.max(ans, Math.abs(number.get(0)));
     }
     static void makeOrder(String op, int cnt, int bit) {
         if(cnt == 3) {
