@@ -7,7 +7,7 @@ import java.util.*;
 public class Back_19238 {
     static int n, m, fuel;
     static pair taxi;
-    static int[][] passanger;
+    static int[][] road;
     static pair[] des;
     static boolean flag; // 이동가능한지 판단
     static int[] dx = {1, -1, 0, 0};
@@ -18,12 +18,12 @@ public class Back_19238 {
         m = sc.nextInt();
         fuel = sc.nextInt();
 
-        passanger = new int[n][n]; // 승객 정보 맵
+        road = new int[n][n];
         des = new pair[m+2]; // 각 승객의 목적지 정보
 
         for(int i = 0 ; i < n ; i++) {
             for(int j = 0 ; j < n ; j++) {
-                passanger[i][j] = sc.nextInt();
+                road[i][j] = sc.nextInt();
             }
         }
         // 택시 초기 위치
@@ -36,14 +36,14 @@ public class Back_19238 {
             int desX = sc.nextInt()-1;
             int desY = sc.nextInt()-1;
 
-            passanger[x][y] = i;
+            road[x][y] = i; // 맵에 승객 위치 표시
             des[i] = new pair(desX, desY);
         }
         startTaxi();
     }
     static void startTaxi() {
         int size = m;
-
+        // 태워야 하는 승객만큼 루프 돌기
         while (size-- > 0) {
             // 승객 찾기
             flag = false;
@@ -94,7 +94,7 @@ public class Back_19238 {
                 int ny = loc.y + dy[i];
 
                 if(nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
-                if(passanger[nx][ny] == 1 || visit[nx][ny]) continue;
+                if(road[nx][ny] == 1 || visit[nx][ny]) continue;
 
                 visit[nx][ny] = true;
                 queue.add(new Info(new pair(nx, ny), t.cnt + 1));
@@ -129,7 +129,7 @@ public class Back_19238 {
                 if(fuel < t.cnt) return -1;
 
                 // 현재 위치에 승객 있는 경우
-                if(passanger[loc.x][loc.y] > 1)  {
+                if(road[loc.x][loc.y] > 1)  {
                     pq.add(loc);
                     cnt = t.cnt;
                 }
@@ -139,7 +139,7 @@ public class Back_19238 {
                     int ny = loc.y + dy[i];
 
                     if(nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
-                    if(passanger[nx][ny] == 1 || visit[nx][ny]) continue;
+                    if(road[nx][ny] == 1 || visit[nx][ny]) continue;
 
                     visit[nx][ny] = true;
                     queue.add(new Info(new pair(nx, ny), t.cnt + 1));
@@ -149,14 +149,14 @@ public class Back_19238 {
 
             // 다음 태울 승객
             pair p = pq.poll();
+            flag = true;
 
             // 연료, 택시 위치 갱신
-            flag = true;
             fuel -= cnt;
             taxi = p;
 
-            int target = passanger[p.x][p.y];
-            passanger[p.x][p.y] = 0;
+            int target = road[p.x][p.y];
+            road[p.x][p.y] = 0;
 
             return target;
         }
