@@ -11,21 +11,21 @@ public class Back_1701 {
         String str = sc.next();
 
         int ans = 0;
+
         while (true) {
-            if(str.length() <= ans) {
+            // 더 이상 비교할 필요 없는 경우
+            if(str.length() <= ans || str.length() <= 1) {
                 System.out.println(ans);
                 break;
             }
             table = new int[str.length()];
 
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            makeTable(sb.reverse().toString());
+            makeTable(str);
 
-            str = str.substring(0, str.length()-1);
+            str = str.substring(1); // 문자열 앞에서부터 자르기
 
             for(int i : table) {
-                if(ans < i) ans = i;
+                if(ans < i) ans = i; // 가장 긴 문자열
             }
         }
     }
