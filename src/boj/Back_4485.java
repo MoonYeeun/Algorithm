@@ -5,11 +5,10 @@ import java.util.*;
 // 백준 4486 녹색 옷 입은 애가 젤다지?
 public class Back_4485 {
     static int[][] map;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int idx = 0;
+        int idx = 1;
         while (true) {
             int n = sc.nextInt();
 
@@ -26,14 +25,13 @@ public class Back_4485 {
             System.out.println("Problem " + idx++ + ": " + result);
         }
     }
-
     static int bfs(int n) {
         PriorityQueue<pair> pq = new PriorityQueue<>();
         boolean[][] visit = new boolean[n][n];
         int[] dx = {1, -1, 0, 0};
         int[] dy = {0, 0, 1, -1};
 
-        pq.add(new pair(0, 0, 0));
+        pq.add(new pair(0, 0, map[0][0]));
         visit[0][0] = true;
 
         while (!pq.isEmpty()) {
@@ -54,7 +52,6 @@ public class Back_4485 {
         }
         return 0;
     }
-
     static class pair implements Comparable<pair> {
         int x, y, lose;
 
