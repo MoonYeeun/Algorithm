@@ -2,7 +2,7 @@ package boj;
 
 import java.util.*;
 
-// 백준 15684 사다리조작
+// 백준 15684 사다리 조작
 // 완탐 & 구현
 // ⭐️ 사다리 고르기 - 백트래킹
 public class Back_15684 {
