@@ -1,6 +1,6 @@
 package LeetCode;
 
-import java.util.HashSet;
+import java.util.*;
 
 // 792. Number of Matching Subsequences
 public class LC792_Number_of_Matching_Subsequences {
@@ -38,4 +38,33 @@ public class LC792_Number_of_Matching_Subsequences {
         }
         return ans;
     }
+
+    // 시간 줄인 코드 (다른 사람 코드 참고 🤩)
+//    public int numMatchingSubseq(String s, String[] words) {
+//        HashMap<Character, Queue<String>> map = new HashMap<>();
+//
+//        for (char c = 'a'; c <= 'z'; c++) {
+//            map.putIfAbsent(c,new LinkedList<>());
+//        }
+//
+//        for (String word : words) {
+//            map.get(word.charAt(0)).add(word);
+//        }
+//
+//        int ans = 0;
+//
+//        for (char c : s.toCharArray()) {
+//            Queue<String> queue = map.get(c);
+//
+//            int size = queue.size();
+//
+//            for (int i = 0 ; i < size ; i++) {
+//                String temp = queue.poll();
+//
+//                if (temp.length()==1) ans++;
+//                else map.get(temp.charAt(1)).add(temp.substring(1));
+//            }
+//        }
+//        return ans;
+//    }
 }
