@@ -1,8 +1,8 @@
-package LeetCode.LC1011;
+package LeetCode;
 
 // 1011. Capacity To Ship Packages Within D Days
 // 이분탐색
-public class Capacity_To_Ship_Packages_Within_D_Days {
+public class LC1011_Capacity_To_Ship_Packages_Within_D_Days {
     public static void main(String[] args) {
         //int[] weights = {1,2,3,4,5,6,7,8,9,10};
         int[] weights = {3, 2, 2, 4, 1, 4};
