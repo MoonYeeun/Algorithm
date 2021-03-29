@@ -1,6 +1,7 @@
 package LeetCode;
 
 // 55. Jump Game
+// 정해는 Greedy
 public class LC55_Jump_Game {
     static boolean[] visit;
 
@@ -32,7 +33,7 @@ public class LC55_Jump_Game {
         return false;
     }
 
-    // ⭐️ O(n) 풀이
+    // ⭐️ O(n) 풀이 (Greedy)
 //    public boolean canJump(int[] nums) {
 //        int max = 0;
 //
