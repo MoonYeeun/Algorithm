@@ -1,5 +1,7 @@
 package LeetCode;
 
+import java.util.Arrays;
+
 // 581. Shortest Unsorted Continuous Subarray
 // 루프 2번 돌면서 정렬되지 않은 가장 왼쪽 - 오른쪽 지점 찾기
 // left : 가장 끝 인덱스-1부터 0까지 중 최소보다 큰 값일 경우 갱신
@@ -30,4 +32,22 @@ public class LC581_Shortest_Unsorted_Continuous_Subarray {
 
         return right == left ? 0 : right - left + 1;
     }
+    // 위 방법보다 시간은 더 느리지만 더 직관적인 방법 : 주어진 배열 정렬 후 값이 다른 지점 처음 - 끝 찾기
+//    public static int findUnsortedSubarray(int[] nums) {
+//        int left = 0;
+//        int right = nums.length-1;
+//
+//        int[] arr = nums.clone();
+//        Arrays.sort(arr);
+//
+//        while(left < nums.length && nums[left] == arr[left]) {
+//            left++;
+//        }
+//
+//        while(right >= 0 && nums[right] == arr[right]) {
+//            right--;
+//        }
+//
+//        return left == nums.length && right == -1 ? 0 : right - left + 1;
+//    }
 }
