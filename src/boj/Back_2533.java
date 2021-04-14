@@ -11,7 +11,6 @@ public class Back_2533 {
     static ArrayList<Integer>[] list;
     static int[][] dp;
     static boolean[] visit;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
@@ -23,8 +22,6 @@ public class Back_2533 {
         for (int i = 1; i <= n; i++) {
             list[i] = new ArrayList<>();
         }
-        Arrays.fill(dp[1], Integer.MAX_VALUE);
-        Arrays.fill(dp[0], Integer.MAX_VALUE);
 
         while (--n > 0) {
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -35,27 +32,22 @@ public class Back_2533 {
             list[f2].add(f1);
         }
 
-        visit[1] = true;
-        int ans = Math.min(find(0, 1), find(1, 1));
-        System.out.println(ans);
+        dfs(1);
+        System.out.println(Math.min(dp[0][1], dp[1][1]));
     }
 
-    static int find(int isEarly, int cur) {
-        if (dp[isEarly][cur] != Integer.MAX_VALUE) return dp[isEarly][cur];
+    static void dfs(int root) {
+        visit[root] = true;
 
-        int res = isEarly == 1 ? 1 : 0;
+        dp[0][root] = 0;
+        dp[1][root] = 1;
 
-        for (int i : list[cur]) {
+        for (int i : list[root]) {
             if (visit[i]) continue;
 
-            visit[i] = true;
-
-            if (isEarly == 1) res += Math.min(find(0, i), find(1, i));
-            else res += find(1, i);
-
-            visit[i] = false;
+            dfs(i);
+            dp[0][root] += dp[1][i];
+            dp[1][root] += Math.min(dp[0][i], dp[1][i]);
         }
-
-        return dp[isEarly][cur] = res == 0 ? res : Math.min(res, dp[isEarly][cur]);
     }
 }
