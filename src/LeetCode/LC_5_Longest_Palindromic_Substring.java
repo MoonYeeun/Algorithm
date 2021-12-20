@@ -1,7 +1,7 @@
-package LeetCode.LC5;
+package LeetCode;
 
 // ⭐️ 5. Longest Palindromic Substring
-public class Longest_Palindromic_Substring {
+public class LC_5_Longest_Palindromic_Substring {
     public static void main(String[] args) {
         String s = "babad";
         String result = longestPalindrome(s);
