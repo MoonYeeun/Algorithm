@@ -16,12 +16,8 @@ public class LC435_Non_overlapping_Intervals {
     public static int eraseOverlapIntervals(int[][] intervals) {
         int ans = 0;
 
-        Arrays.sort(intervals, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] arr1, int[] arr2) {
-                if (arr1[1] == arr2[1]) return arr2[0] - arr1[0];
-                return arr1[1] - arr2[1];
-            }
+        Arrays.sort(intervals, (arr1, arr2) -> {
+            return arr1[1] - arr2[1];
         });
 
         int loc = intervals[0][0];
